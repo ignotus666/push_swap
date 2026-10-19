@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 17:52:19 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/18 22:30:00 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/19 09:23:05 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ long	ft_atol(const char *nptr, int *error)
 	{
 		num = (num * 10) + (*nptr - '0');
 		if (num > (long)INT_MAX + 1)
-		{
-			if (error)
-				*error = 1;
-			return (0);
-		}
+			break ;
 		nptr++;
 	}
 	if ((sign * num) > INT_MAX || (sign * num) < INT_MIN)
