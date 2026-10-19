@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/18 22:30:00 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/19 09:33:37 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 typedef enum e_strategy
 {
 	STRAT_ADAPTIVE = 0,
-	STRAT_SIMPLE,
-	STRAT_MEDIUM,
-	STRAT_COMPLEX
+	STRAT_SIMPLE = 1,
+	STRAT_MEDIUM = 2,
+	STRAT_COMPLEX = 3
 }	t_strategy;
 
 typedef struct s_config

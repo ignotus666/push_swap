@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/18 22:30:00 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/19 09:25:49 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,3 @@ void	free_stack(t_stack *stack)
 	stack->tail = NULL;
 	stack->size = 0;
 }
-
