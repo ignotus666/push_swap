@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
+#    By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/18 22:34:49 by dahanlon         ###   ########.fr        #
+#    Updated: 2026/10/19 14:51:42 by jmarin-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,4 +40,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
