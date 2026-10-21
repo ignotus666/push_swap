@@ -3,66 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:29:48 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/21 12:00:37 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/21 20:05:52 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	stack_size(t_stack *a)
-{
-	t_node	*node;
-	size_t	size;
-
-	if (!a->head)
-		return (0);
-	node = a->head;
-	size = 0;
-	while (node)
-	{
-		size++;
-		node = node->next;
-	}
-	return (size);
-}
-
-int	node_num(t_stack *a, int index)
-{
-	t_node	*node;
-
-	node = a->head;
-	while (index != 0)
-	{
-		node = node->next;
-		index--;
-	}
-	return (node->num);
-}
-
 float	compute_disorder(t_stack *a)
 {
 	int	mistakes;
 	int	total_pairs;
-	int	i;
-	int	j;
+	t_node *curr_i;
+	t_node *curr_j;
 
+	if (!a || !a->head)
+		return (0.0f);
 	mistakes = 0;
 	total_pairs = 0;
-	i = 0;
-	while (i < stack_size(a))
+	curr_i = a->head;
+	while (curr_i)
 	{
-		j = i + 1;
-		while (j < stack_size(a))
+		curr_j = curr_i->next;
+		while (curr_j)
 		{
 			total_pairs++;
-			if (node_num(a, i) > node_num(a, j))
+			if (curr_i->num > curr_j->num)
 				mistakes++;
-			j++;
+			curr_j = curr_j->next;
 		}
-		i++;
+		curr_i = curr_i->next;
 	}
-	return (mistakes / total_pairs);
+	if (total_pairs == 0)
+		return (0);
+	return ((float)mistakes / total_pairs);
 }
