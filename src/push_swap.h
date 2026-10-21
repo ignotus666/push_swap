@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/19 09:33:37 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/21 13:36:50 by jmarin-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ long	ft_atol(const char *nptr, int *error);
 int		is_valid_syntax(char *nums);
 int		parse_flag(char *arg, t_config *cfg);
 int		parse_args(int argc, char **argv, t_stack *a, t_config *cfg);
+
+/* Compute disorder utilities */
+float	compute_disorder(t_stack *a);
 
 #endif
