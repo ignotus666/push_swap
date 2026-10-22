@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:29:48 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/21 20:05:52 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/22 10:50:51 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 float	compute_disorder(t_stack *a)
 {
-	int	mistakes;
-	int	total_pairs;
-	t_node *curr_i;
-	t_node *curr_j;
+	int		mistakes;
+	int		total_pairs;
+	t_node	*curr_i;
+	t_node	*curr_j;
 
 	if (!a || !a->head)
 		return (0.0f);
