@@ -94,5 +94,7 @@ void	config_init(t_config *cfg);
 void	op_sa(t_stack *a, t_config *cfg);
 void	op_sb(t_stack *b, t_config *cfg);
 void	op_ss(t_stack *a, t_stack *b, t_config *cfg);
+void	op_pa(t_stack *a, t_stack *b, t_config *cfg);
+void	op_pb(t_stack *a, t_stack *b, t_config *cfg);
 
 #endif

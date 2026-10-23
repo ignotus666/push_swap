@@ -21,7 +21,8 @@ SRCS = $(SRC_DIR)/push_swap.c \
        $(SRC_DIR)/str_utils.c \
        $(SRC_DIR)/ft_split.c \
 	   $(SRC_DIR)/compute_disorder.c \
-	   $(SRC_DIR)/op_swap.c
+	   $(SRC_DIR)/op_swap.c \
+	   $(SRC_DIR)/op_push.c
 
 OBJS = $(SRCS:.c=.o)
 
