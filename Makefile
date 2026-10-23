@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+         #
+#    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/21 14:30:18 by jmarin-l         ###   ########.fr        #
+#    Updated: 2026/10/22 14:40:03 by dahanlon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRCS = $(SRC_DIR)/push_swap.c \
        $(SRC_DIR)/stack_utils.c \
        $(SRC_DIR)/str_utils.c \
        $(SRC_DIR)/ft_split.c \
-	   $(SRC_DIR)/compute_disorder.c
+	   $(SRC_DIR)/compute_disorder.c \
+	   $(SRC_DIR)/op_swap.c \
+	   $(SRC_DIR)/op_push.c
 
 OBJS = $(SRCS:.c=.o)
 

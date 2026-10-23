@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/18 22:30:00 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/22 14:47:27 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,18 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	stack_init(&a);
-	cfg.strategy = STRAT_ADAPTIVE;
-	cfg.bench = 0;
+	config_init(&cfg);
 	if (!parse_args(argc, argv, &a, &cfg))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_stack(&a);
 		return (1);
 	}
-	if (a.size == 0)
+	cfg.disorder = compute_disorder(&a);
+	if (cfg.disorder == 0.0f)
+	{
+		free_stack(&a);
 		return (0);
-	free_stack(&a);
+	}
 	return (0);
 }

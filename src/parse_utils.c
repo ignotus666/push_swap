@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 17:52:19 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/19 09:23:05 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/22 14:51:31 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,22 @@ int	parse_flag(char *arg, t_config *cfg)
 	else
 		return (-1);
 	return (1);
+}
+
+void	config_init(t_config *cfg)
+{
+	cfg->strategy = STRAT_ADAPTIVE;
+	cfg->bench = 0;
+	cfg->ops.total = 0;
+	cfg->ops.sa = 0;
+	cfg->ops.sb = 0;
+	cfg->ops.ss = 0;
+	cfg->ops.pa = 0;
+	cfg->ops.pb = 0;
+	cfg->ops.ra = 0;
+	cfg->ops.rb = 0;
+	cfg->ops.rr = 0;
+	cfg->ops.rra = 0;
+	cfg->ops.rrb = 0;
+	cfg->ops.rrr = 0;
 }
