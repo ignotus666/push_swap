@@ -100,4 +100,7 @@ void	op_ra(t_stack *a, t_config *cfg);
 void	op_rb(t_stack *b, t_config *cfg);
 void	op_rr(t_stack *a, t_stack *b, t_config *cfg);
 
+/* Algorithms */
+void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);
+
 #endif

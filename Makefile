@@ -22,7 +22,10 @@ SRCS = $(SRC_DIR)/push_swap.c \
        $(SRC_DIR)/ft_split.c \
 	   $(SRC_DIR)/compute_disorder.c \
 	   $(SRC_DIR)/op_swap.c \
-	   $(SRC_DIR)/op_push.c
+	   $(SRC_DIR)/op_push.c \
+	   $(SRC_DIR)/op_rotate.c \
+	   $(SRC_DIR)/op_rev_rotate.c \
+	   $(SRC_DIR)/alg_simple.c
 
 OBJS = $(SRCS:.c=.o)
 
