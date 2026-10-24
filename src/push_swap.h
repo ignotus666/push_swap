@@ -96,5 +96,8 @@ void	op_sb(t_stack *b, t_config *cfg);
 void	op_ss(t_stack *a, t_stack *b, t_config *cfg);
 void	op_pa(t_stack *a, t_stack *b, t_config *cfg);
 void	op_pb(t_stack *a, t_stack *b, t_config *cfg);
+void	op_ra(t_stack *a, t_config *cfg);
+void	op_rb(t_stack *b, t_config *cfg);
+void	op_rr(t_stack *a, t_stack *b, t_config *cfg);
 
 #endif
