@@ -99,5 +99,7 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
+	if (cfg.strategy == STRAT_SIMPLE)
+		alg_simple(&a, &b, &cfg);
 	return (0);
 }

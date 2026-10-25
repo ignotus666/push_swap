@@ -105,5 +105,6 @@ void	op_rrr(t_stack *a, t_stack *b, t_config *cfg);
 
 /* Algorithms */
 void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);
+void	alg_medium(t_stack *a, t_stack *b, t_config *cfg);
 
 #endif
