@@ -1,4 +1,14 @@
-/* 42 Header */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/26 18:59:31 by dahanlon          #+#    #+#             */
+/*   Updated: 2026/10/26 19:01:57 by dahanlon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -12,7 +22,7 @@ static int	push_stack(t_stack *dst, t_stack *src)
 	src->head = node->next;
 	if (src->head)
 		src->head->prev = NULL;
-	else	
+	else
 		src->tail = NULL;
 	src->size--;
 	node->next = dst->head;
