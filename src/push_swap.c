@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/22 14:47:27 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/26 10:39:28 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,28 @@ int	parse_args(int argc, char **argv, t_stack *a, t_config *cfg)
 	return (1);
 }
 
+static void	run_strategy(t_stack *a, t_stack *b, t_config *cfg)
+{
+	if (cfg->strategy == STRAT_SIMPLE)
+		alg_simple(a, b, cfg);
+	else if (cfg->strategy == STRAT_MEDIUM)
+		alg_medium(a, b, cfg);
+	else if (cfg->strategy == STRAT_COMPLEX)
+		alg_complex(a, b, cfg);
+	else
+		alg_adaptive(a, b, cfg);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack		a;
+	t_stack		b;
 	t_config	cfg;
 
 	if (argc < 2)
 		return (0);
 	stack_init(&a);
+	stack_init(&b);
 	config_init(&cfg);
 	if (!parse_args(argc, argv, &a, &cfg))
 	{
@@ -99,7 +113,8 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
-	if (cfg.strategy == STRAT_SIMPLE)
-		alg_simple(&a, &b, &cfg);
+	run_strategy(&a, &b, &cfg);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

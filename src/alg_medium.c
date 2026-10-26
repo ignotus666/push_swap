@@ -38,7 +38,7 @@ static void	index_nodes(t_stack *a)
 	}
 }
 
-static int	sqrt(int n)
+static int	ft_sqrt(int n)
 {
 	int	i;
 	if (n < 4)
@@ -60,5 +60,5 @@ void	alg_medium(t_stack *a, t_stack *b, t_config *cfg)
 	if (!a || !cfg || a->size < 2)
 		return ;
 	index_nodes(a);
-	chunk_size = sqrt(a->size);
+	chunk_size = ft_sqrt(a->size);
 }

@@ -10,8 +10,8 @@ static int	get_min(t_stack *s, int *index)
 
 	node = s->head;
 	min = node->num;
-	i = 1;
-	*index = 1;
+	i = 0;
+	*index = 0;
 	while (node)
 	{
 		if (node->num < min)
