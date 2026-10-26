@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   alg_medium.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/26 15:03:59 by jmarin-l          #+#    #+#             */
+/*   Updated: 2026/10/26 15:04:11 by jmarin-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -41,6 +51,7 @@ static void	index_nodes(t_stack *a)
 static int	ft_sqrt(int n)
 {
 	int	i;
+
 	if (n < 4)
 		return (1);
 	i = 2;
@@ -58,12 +69,12 @@ static void	build_a(t_stack *a, t_stack *b, t_config *cfg)
 	int	max;
 	int	index;
 
-	if (!b || !cfg || b->size < 2)
+	if (!b || !cfg || b->size == 0)
 		return ;
 	while (b->size != 0)
 	{
 		max = get_max(b, &index);
-		if (index < (b->size / 2))
+		if (index <= (b->size / 2))
 		{
 			while (b->head->num != max)
 				op_rb(b, cfg);
@@ -80,10 +91,7 @@ static void	build_a(t_stack *a, t_stack *b, t_config *cfg)
 void	alg_medium(t_stack *a, t_stack *b, t_config *cfg)
 {
 	int		chunk_size;
-	int		min_idx;
-	int		max_idx;
 	int		i;
-	t_node	*node;
 
 	if (!a || !cfg || a->size < 2)
 		return ;
@@ -92,18 +100,19 @@ void	alg_medium(t_stack *a, t_stack *b, t_config *cfg)
 	i = 0;
 	while (a->size != 0)
 	{
-		node = a->head;
-		min_idx = i * chunk_size;
-		max_idx = min_idx + chunk_size - 1;
-		while (node)
+		if (a->head->index <= i)
 		{
-			if (node->index > max_idx)
-				op_ra(a, cfg);
-			else
-				op_pb(a, b, cfg);
-			node = node->next;
+			op_pb(a, b, cfg);
+			op_rb(b, cfg);
+			i++;
 		}
-		i++;
+		else if (a->head->index <= i + chunk_size)
+		{
+			op_pb(a, b, cfg);
+			i++;
+		}
+		else
+			op_ra(a, cfg);
 	}
 	build_a(a, b, cfg);
 }
