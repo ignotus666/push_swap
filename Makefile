@@ -6,7 +6,7 @@
 #    By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/21 14:30:18 by jmarin-l         ###   ########.fr        #
+#    Updated: 2026/10/26 13:48:42 by jmarin-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,14 @@ SRCS = $(SRC_DIR)/push_swap.c \
        $(SRC_DIR)/stack_utils.c \
        $(SRC_DIR)/str_utils.c \
        $(SRC_DIR)/ft_split.c \
-	   $(SRC_DIR)/compute_disorder.c
+	   $(SRC_DIR)/compute_disorder.c \
+	   $(SRC_DIR)/op_swap.c \
+	   $(SRC_DIR)/op_push.c \
+	   $(SRC_DIR)/op_rotate.c \
+	   $(SRC_DIR)/op_rev_rotate.c \
+	   $(SRC_DIR)/alg_simple.c \
+	   $(SRC_DIR)/alg_medium.c \
+	   $(SRC_DIR)/alg_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

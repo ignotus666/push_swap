@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/21 13:36:50 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/26 19:01:29 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,28 @@ typedef enum e_strategy
 	STRAT_COMPLEX = 3
 }	t_strategy;
 
+typedef struct s_ops
+{
+	int	total;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}	t_ops;
+
 typedef struct s_config
 {
 	t_strategy	strategy;
 	int			bench;
+	float		disorder;
+	t_ops		ops;
 }	t_config;
 
 typedef struct s_node
@@ -70,5 +88,26 @@ int		parse_args(int argc, char **argv, t_stack *a, t_config *cfg);
 
 /* Compute disorder utilities */
 float	compute_disorder(t_stack *a);
+
+/* Operations */
+void	config_init(t_config *cfg);
+void	op_sa(t_stack *a, t_config *cfg);
+void	op_sb(t_stack *b, t_config *cfg);
+void	op_ss(t_stack *a, t_stack *b, t_config *cfg);
+void	op_pa(t_stack *a, t_stack *b, t_config *cfg);
+void	op_pb(t_stack *a, t_stack *b, t_config *cfg);
+void	op_ra(t_stack *a, t_config *cfg);
+void	op_rb(t_stack *b, t_config *cfg);
+void	op_rr(t_stack *a, t_stack *b, t_config *cfg);
+void	op_rra(t_stack *a, t_config *cfg);
+void	op_rrb(t_stack *b, t_config *cfg);
+void	op_rrr(t_stack *a, t_stack *b, t_config *cfg);
+
+/* Algortihm utils */
+int		get_max(t_stack *s, int *index);
+
+/* Algorithms */
+void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);
+void	alg_medium(t_stack *a, t_stack *b, t_config *cfg);
 
 #endif
