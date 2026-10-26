@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/22 14:50:12 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:47:03 by jmarin-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ void	op_rr(t_stack *a, t_stack *b, t_config *cfg);
 void	op_rra(t_stack *a, t_config *cfg);
 void	op_rrb(t_stack *b, t_config *cfg);
 void	op_rrr(t_stack *a, t_stack *b, t_config *cfg);
+
+/* Algortihm utils */
+int		get_max(t_stack *s, int *index);
 
 /* Algorithms */
 void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);

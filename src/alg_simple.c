@@ -5,8 +5,8 @@
 static int	get_min(t_stack *s, int *index)
 {
 	t_node	*node;
-	int	min;
-	int	i;
+	int		min;
+	int		i;
 
 	node = s->head;
 	min = node->num;
@@ -39,7 +39,7 @@ void	alg_simple(t_stack *a, t_stack *b, t_config *cfg)
 		{
 			while (a->head->num != min)
 				op_ra(a, cfg);
-		}	
+		}
 		else
 		{
 			while (a->head->num != min)

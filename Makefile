@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
+#    By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/26 10:55:25 by dahanlon         ###   ########.fr        #
+#    Updated: 2026/10/26 13:48:42 by jmarin-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = $(SRC_DIR)/push_swap.c \
 	   $(SRC_DIR)/op_rotate.c \
 	   $(SRC_DIR)/op_rev_rotate.c \
 	   $(SRC_DIR)/alg_simple.c \
-	   $(SRC_DIR)/alg_medium.c
+	   $(SRC_DIR)/alg_medium.c \
+	   $(SRC_DIR)/alg_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
