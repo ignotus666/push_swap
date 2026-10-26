@@ -6,7 +6,7 @@
 #    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/22 14:40:03 by dahanlon         ###   ########.fr        #
+#    Updated: 2026/10/26 10:55:25 by dahanlon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS = $(SRC_DIR)/push_swap.c \
 	   $(SRC_DIR)/op_push.c \
 	   $(SRC_DIR)/op_rotate.c \
 	   $(SRC_DIR)/op_rev_rotate.c \
-	   $(SRC_DIR)/alg_simple.c
+	   $(SRC_DIR)/alg_simple.c \
+	   $(SRC_DIR)/alg_medium.c
 
 OBJS = $(SRCS:.c=.o)
 
