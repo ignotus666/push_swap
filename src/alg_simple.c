@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   alg_simple.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 16:11:10 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/26 16:11:14 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:56:31 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	alg_simple(t_stack *a, t_stack *b, t_config *cfg)
 	while (a->size != 0)
 	{
 		min = get_min(a, &index);
-		if (index < (a->size / 2))
+		if (index <= (a->size / 2))
 		{
 			while (a->head->num != min)
 				op_ra(a, cfg);
