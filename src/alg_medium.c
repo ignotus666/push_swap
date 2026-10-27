@@ -3,50 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   alg_medium.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 15:03:59 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/26 15:04:11 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/27 10:19:39 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_node	*get_first_unindexed(t_stack *a)
-{
-	t_node	*node;
-
-	if (!a)
-		return (NULL);
-	node = a->head;
-	while (node && node->index != -1)
-		node = node->next;
-	return (node);
-}
-
-static void	index_nodes(t_stack *a)
-{
-	t_node	*node;
-	t_node	*min;
-	int		i;
-
-	if (!a)
-		return ;
-	i = 0;
-	while (i < a->size)
-	{
-		node = a->head;
-		min = get_first_unindexed(a);
-		while (node)
-		{
-			if (node->num < min->num && node->index == -1)
-				min = node;
-			node = node->next;
-		}
-		min->index = i;
-		i++;
-	}
-}
 
 static int	ft_sqrt(int n)
 {

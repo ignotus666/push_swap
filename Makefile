@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+         #
+#    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/26 16:32:16 by jmarin-l         ###   ########.fr        #
+#    Updated: 2026/10/27 16:09:05 by dahanlon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS = $(SRC_DIR)/push_swap.c \
 	   $(SRC_DIR)/op_rev_rotate.c \
 	   $(SRC_DIR)/alg_simple.c \
 	   $(SRC_DIR)/alg_medium.c \
+	   $(SRC_DIR)/alg_complex.c \
+	   $(SRC_DIR)/alg_adaptive.c \
 	   $(SRC_DIR)/alg_utils.c \
 	   $(SRC_DIR)/bench.c
 

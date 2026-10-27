@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 16:14:58 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/26 17:00:37 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:45:06 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,14 @@ static void	print_strategy(t_config *cfg)
 	else if (cfg->strategy == STRAT_COMPLEX)
 		ft_putstr_fd("Complex / O(n log n)\n", 2);
 	else if (cfg->strategy == STRAT_ADAPTIVE)
-		ft_putstr_fd("Adaptative / O(n√n)\n", 2);
+	{
+		if (cfg->disorder < 0.2f)
+			ft_putstr_fd("Adaptive / O(n)\n", 2);
+		else if (cfg->disorder < 0.5f)
+			ft_putstr_fd("Adaptive / O(n√n)\n", 2);
+		else
+			ft_putstr_fd("Adaptive / O(n log n)\n", 2);
+	}
 }
 
 static void	print_total_ops(t_config *cfg)
@@ -58,7 +65,7 @@ static void	print_total_ops(t_config *cfg)
 
 static void	print_ops(t_config *cfg)
 {
-	ft_putstr_fd("[bench]	sa: ", 2);
+	ft_putstr_fd("[bench] sa: ", 2);
 	ft_putnbr_fd(cfg->ops.sa, 2);
 	ft_putstr_fd(" sb: ", 2);
 	ft_putnbr_fd(cfg->ops.sb, 2);
@@ -68,7 +75,7 @@ static void	print_ops(t_config *cfg)
 	ft_putnbr_fd(cfg->ops.pa, 2);
 	ft_putstr_fd(" pb: ", 2);
 	ft_putnbr_fd(cfg->ops.pb, 2);
-	ft_putstr_fd("\n[bench]	ra: ", 2);
+	ft_putstr_fd("\n[bench] ra: ", 2);
 	ft_putnbr_fd(cfg->ops.ra, 2);
 	ft_putstr_fd(" rb: ", 2);
 	ft_putnbr_fd(cfg->ops.rb, 2);
