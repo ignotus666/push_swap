@@ -114,6 +114,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	run_strategy(&a, &b, &cfg);
+	if (cfg.bench)
+		print_bench(&cfg);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
