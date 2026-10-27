@@ -110,4 +110,7 @@ int		get_max(t_stack *s, int *index);
 void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);
 void	alg_medium(t_stack *a, t_stack *b, t_config *cfg);
 
+/* Bench */
+void	print_bench(t_config *cfg);
+
 #endif
