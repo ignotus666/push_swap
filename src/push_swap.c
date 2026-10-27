@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/26 10:53:41 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/27 12:38:27 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ static void	run_strategy(t_stack *a, t_stack *b, t_config *cfg)
 		alg_simple(a, b, cfg);
 	else if (cfg->strategy == STRAT_MEDIUM)
 		alg_medium(a, b, cfg);
-	/*else if (cfg->strategy == STRAT_COMPLEX)
+	else if (cfg->strategy == STRAT_COMPLEX)
 		alg_complex(a, b, cfg);
 	else
-		alg_adaptive(a, b, cfg);*/
+		alg_adaptive(a, b, cfg);
 }
 
 int	main(int argc, char **argv)
