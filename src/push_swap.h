@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/27 12:06:43 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:05:15 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	index_nodes(t_stack *a);
 void	alg_simple(t_stack *a, t_stack *b, t_config *cfg);
 void	alg_medium(t_stack *a, t_stack *b, t_config *cfg);
 void	alg_complex(t_stack *a, t_stack *b, t_config *cfg);
+void	alg_adaptive(t_stack *a, t_stack *b, t_config *cfg);
 
 /* Bench */
 void	print_bench(t_config *cfg);

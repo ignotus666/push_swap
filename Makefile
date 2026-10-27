@@ -6,7 +6,7 @@
 #    By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/18 22:30:00 by dahanlon          #+#    #+#              #
-#    Updated: 2026/10/27 10:21:27 by dahanlon         ###   ########.fr        #
+#    Updated: 2026/10/27 16:09:05 by dahanlon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = $(SRC_DIR)/push_swap.c \
 	   $(SRC_DIR)/alg_simple.c \
 	   $(SRC_DIR)/alg_medium.c \
 	   $(SRC_DIR)/alg_complex.c \
+	   $(SRC_DIR)/alg_adaptive.c \
 	   $(SRC_DIR)/alg_utils.c \
 	   $(SRC_DIR)/bench.c
 
