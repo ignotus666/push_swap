@@ -6,13 +6,13 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 11:46:26 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/22 14:39:36 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/28 11:03:37 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	swap_stack(t_stack *s)
+int	swap_stack(t_stack *s)
 {
 	t_node	*first;
 	t_node	*second;

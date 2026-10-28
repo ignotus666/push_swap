@@ -6,7 +6,7 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/27 16:05:15 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/28 11:06:33 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,12 @@ void	op_rra(t_stack *a, t_config *cfg);
 void	op_rrb(t_stack *b, t_config *cfg);
 void	op_rrr(t_stack *a, t_stack *b, t_config *cfg);
 
-/* Algortihm utils */
+int		swap_stack(t_stack *s);
+int		push_stack(t_stack *dest, t_stack *src);
+int		rotate_stack(t_stack *s);
+int		rev_rotate_stack(t_stack *s);
+
+/* Algorithm utils */
 int		get_max(t_stack *s, int *index);
 t_node	*get_first_unindexed(t_stack *a);
 void	index_nodes(t_stack *a);
