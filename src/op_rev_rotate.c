@@ -6,13 +6,13 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 18:58:12 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/26 18:58:16 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/28 11:03:59 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	rev_rotate_stack(t_stack *s)
+int	rev_rotate_stack(t_stack *s)
 {
 	t_node	*node;
 
