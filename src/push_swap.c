@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	process_tokens(char **tokens, t_stack *a)
+int	process_tokens(char **tokens, t_stack *a)
 {
 	int		j;
 	int		error;

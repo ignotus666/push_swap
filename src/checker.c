@@ -13,6 +13,56 @@
 #include "push_swap.h"
 #include "get_next_line.h"
 
+static int	checker_args(int argc, char **argv, t_stack *a, t_stack *b)
+{
+	char	**tokens;
+	int		splited;
+
+	splited = 0;
+	if (argc == 2)
+	{
+		tokens = ft_split(argv[1], ' ');
+		if (!tokens)
+			return (0);
+		splited = 1;
+	}
+	else
+		tokens = &argv[1];
+	if (!process_tokens(tokens, a))
+	{
+		if (splited)
+			ft_free_split(tokens);
+		ft_putstr_fd("Error\n", 2);
+		free_stack(a);
+		free_stack(b);
+		return (0);
+	}
+	if (splited)
+		ft_free_split(tokens);
+	return (1);
+}
+
+static int	checker_ops(t_stack *a, t_stack *b)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		if (!run_op(line, a, b))
+		{
+			free_stack(a);
+			free_stack(b);
+			free(line);
+			ft_putstr_fd("Error\n", 2);
+			return (0);
+		}
+		line = get_next_line(0);
+	}
+	free(line);
+	return (1);
+}
+
 static int	is_sorted(t_stack *a)
 {
 	t_node	*curr;
@@ -29,65 +79,26 @@ static int	is_sorted(t_stack *a)
 	return (1);
 }
 
-static int	run_rotates(char *line, t_stack *a, t_stack *b)
-{
-	if (ft_strncmp(line, "ra\n", 4) == 0)
-		rotate_stack(a);
-	else if (ft_strncmp(line, "rb\n", 4) == 0)
-		rotate_stack(b);
-	else if (ft_strncmp(line, "rr\n", 4) == 0)
-	{
-		rotate_stack(a);
-		rotate_stack(b);
-	}
-	else if (ft_strncmp(line, "rra\n", 5) == 0)
-		rev_rotate_stack(a);
-	else if (ft_strncmp(line, "rrb\n", 5) == 0)
-		rev_rotate_stack(b);
-	else if (ft_strncmp(line, "rrr\n", 5) == 0)
-	{
-		rev_rotate_stack(a);
-		rev_rotate_stack(b);
-	}
-	else
-		return (0);
-	return (1);
-}
-
-static int	run_op(char *line, t_stack *a, t_stack *b)
-{
-	if (ft_strncmp(line, "sa\n", 4) == 0)
-		swap_stack(a);
-	else if (ft_strncmp(line, "sb\n", 4) == 0)
-		swap_stack(b);
-	else if (ft_strncmp(line, "ss\n", 4) == 0)
-	{
-		swap_stack(a);
-		swap_stack(b);
-	}
-	else if (ft_strncmp(line, "pa\n", 4) == 0)
-		push_stack(a, b);
-	else if (ft_strncmp(line, "pb\n", 4) == 0)
-		push_stack(b, a);
-	else
-		return (run_rotates(line, a, b));
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
-	char	**tokens;
+	t_stack	a;
+	t_stack	b;
+	char	*line;
 
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
-		tokens = ft_split(argv[1], ' ');
-	else
-		tokens = argv;
-	if (!checker_parse(tokens))
-	{
-		ft_putstr_fd("Error\n", 2);
+	stack_init(&a);
+	stack_init(&b);
+	if (!checker_args(argc, argv, &a, &b))
 		return (1);
+	if (checker_ops(&a, &b))
+	{
+		if (is_sorted(&a) && b.size == 0)
+			ft_putstr_fd("OK\n", 1);
+		else
+			ft_putstr_fd("KO\n", 1);
 	}
-	
+	free_stack(&a);
+	free_stack(&b);
+	return (0);
 }

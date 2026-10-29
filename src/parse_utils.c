@@ -75,7 +75,7 @@ int	parse_flag(char *arg, t_config *cfg)
 		cfg->strategy = STRAT_MEDIUM;
 	else if (ft_strncmp(arg, "--complex", 10) == 0)
 		cfg->strategy = STRAT_COMPLEX;
-	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
+	else if (ft_strncmp(arg, "--adaptative", 11) == 0)
 		cfg->strategy = STRAT_ADAPTIVE;
 	else if (ft_strncmp(arg, "--bench", 8) == 0)
 		cfg->bench = 1;
