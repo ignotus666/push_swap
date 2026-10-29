@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -34,20 +35,32 @@ SRCS = $(SRC_DIR)/push_swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
+BONUS_SRC = $(SRC_DIR)/checker.c \
+			$(SRC_DIR)/checker_utils.c \
+			$(SRC_DIR)/get_next_line.c \
+			$(SRC_DIR)/get_next_line_utils.c
+
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
+bonus: $(BONUS)
+
+$(BONUS): $(OBJS) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJ) -o $(BONUS)
+
 %.o: %.c $(SRC_DIR)/push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

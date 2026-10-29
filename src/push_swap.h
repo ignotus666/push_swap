@@ -85,6 +85,7 @@ long	ft_atol(const char *nptr, int *error);
 int		is_valid_syntax(char *nums);
 int		parse_flag(char *arg, t_config *cfg);
 int		parse_args(int argc, char **argv, t_stack *a, t_config *cfg);
+int		process_tokens(char **tokens, t_stack *a);
 
 /* Compute disorder utilities */
 float	compute_disorder(t_stack *a);
@@ -121,5 +122,8 @@ void	alg_adaptive(t_stack *a, t_stack *b, t_config *cfg);
 
 /* Bench */
 void	print_bench(t_config *cfg);
+
+/* Checker utils */
+int	run_op(char *line, t_stack *a, t_stack *b);
 
 #endif
