@@ -16,8 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src
-SRCS = $(SRC_DIR)/push_swap.c \
-       $(SRC_DIR)/parse_utils.c \
+SRCS = $(SRC_DIR)/parse_utils.c \
        $(SRC_DIR)/stack_utils.c \
        $(SRC_DIR)/str_utils.c \
        $(SRC_DIR)/ft_split.c \
@@ -35,6 +34,9 @@ SRCS = $(SRC_DIR)/push_swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
+PS_SRC = $(SRC_DIR)/push_swap.c
+PS_OBJ = $(PS_SRC:.c=.o)
+
 BONUS_SRC = $(SRC_DIR)/checker.c \
 			$(SRC_DIR)/checker_utils.c \
 			$(SRC_DIR)/get_next_line.c \
@@ -44,8 +46,8 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(PS_OBJ)
+	$(CC) $(CFLAGS) $(OBJS) $(PS_OBJ) -o $(NAME)
 
 bonus: $(BONUS)
 
@@ -56,7 +58,7 @@ $(BONUS): $(OBJS) $(BONUS_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJ)
+	rm -f $(OBJS) $(PS_OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME) $(BONUS)
