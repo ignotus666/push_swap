@@ -6,11 +6,34 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 17:52:19 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/26 18:58:46 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/29 16:21:52 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	parse_number_arg(char *arg, t_stack *a)
+{
+	char	**tokens;
+
+	if (!arg || arg[0] == '\0')
+		return (0);
+	tokens = ft_split(arg, ' ');
+	if (!tokens)
+		return (0);
+	if (!tokens[0])
+	{
+		ft_free_split(tokens);
+		return (0);
+	}
+	if (!process_tokens(tokens, a))
+	{
+		ft_free_split(tokens);
+		return (0);
+	}
+	ft_free_split(tokens);
+	return (1);
+}
 
 int	is_valid_syntax(char *nums)
 {
@@ -85,22 +108,4 @@ int	ft_isdigit(int c)
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
-}
-
-void	config_init(t_config *cfg)
-{
-	cfg->strategy = STRAT_ADAPTIVE;
-	cfg->bench = 0;
-	cfg->ops.total = 0;
-	cfg->ops.sa = 0;
-	cfg->ops.sb = 0;
-	cfg->ops.ss = 0;
-	cfg->ops.pa = 0;
-	cfg->ops.pb = 0;
-	cfg->ops.ra = 0;
-	cfg->ops.rb = 0;
-	cfg->ops.rr = 0;
-	cfg->ops.rra = 0;
-	cfg->ops.rrb = 0;
-	cfg->ops.rrr = 0;
 }

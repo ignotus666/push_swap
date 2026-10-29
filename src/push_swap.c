@@ -6,11 +6,29 @@
 /*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/27 19:49:31 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/29 16:21:37 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	config_init(t_config *cfg)
+{
+	cfg->strategy = STRAT_ADAPTIVE;
+	cfg->bench = 0;
+	cfg->ops.total = 0;
+	cfg->ops.sa = 0;
+	cfg->ops.sb = 0;
+	cfg->ops.ss = 0;
+	cfg->ops.pa = 0;
+	cfg->ops.pb = 0;
+	cfg->ops.ra = 0;
+	cfg->ops.rb = 0;
+	cfg->ops.rr = 0;
+	cfg->ops.rra = 0;
+	cfg->ops.rrb = 0;
+	cfg->ops.rrr = 0;
+}
 
 static int	parse_flag(char *arg, t_config *cfg)
 {
@@ -22,35 +40,12 @@ static int	parse_flag(char *arg, t_config *cfg)
 		cfg->strategy = STRAT_MEDIUM;
 	else if (ft_strncmp(arg, "--complex", 10) == 0)
 		cfg->strategy = STRAT_COMPLEX;
-	else if (ft_strncmp(arg, "--adaptative", 11) == 0)
+	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
 		cfg->strategy = STRAT_ADAPTIVE;
 	else if (ft_strncmp(arg, "--bench", 8) == 0)
 		cfg->bench = 1;
 	else
 		return (-1);
-	return (1);
-}
-
-static int	parse_number_arg(char *arg, t_stack *a)
-{
-	char	**tokens;
-
-	if (!arg || arg[0] == '\0')
-		return (0);
-	tokens = ft_split(arg, ' ');
-	if (!tokens)
-		return (0);
-	if (!tokens[0])
-	{
-		ft_free_split(tokens);
-		return (0);
-	}
-	if (!process_tokens(tokens, a))
-	{
-		ft_free_split(tokens);
-		return (0);
-	}
-	ft_free_split(tokens);
 	return (1);
 }
 

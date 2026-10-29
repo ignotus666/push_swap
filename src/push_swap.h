@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:04:36 by jmarin-l          #+#    #+#             */
-/*   Updated: 2026/10/28 16:10:04 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/29 16:16:20 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_free_split(char **words);
 long	ft_atol(const char *nptr, int *error);
 int		is_valid_syntax(char *nums);
 int		process_tokens(char **tokens, t_stack *a);
+int		parse_number_arg(char *arg, t_stack *a);
 
 /* Compute disorder utilities */
 float	compute_disorder(t_stack *a);
@@ -122,6 +123,6 @@ void	alg_adaptive(t_stack *a, t_stack *b, t_config *cfg);
 void	print_bench(t_config *cfg);
 
 /* Checker utils */
-int	run_op(char *line, t_stack *a, t_stack *b);
+int		run_op(char *line, t_stack *a, t_stack *b);
 
 #endif
