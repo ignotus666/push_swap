@@ -3,42 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 11:59:32 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/28 16:14:04 by jmarin-l         ###   ########.fr       */
+/*   Updated: 2026/10/29 16:23:10 by dahanlon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "get_next_line.h"
 
-static int	checker_args(int argc, char **argv, t_stack *a, t_stack *b)
+static int	checker_args(int argc, char **argv, t_stack *a)
 {
-	char	**tokens;
-	int		splited;
+	int	i;
 
-	splited = 0;
-	if (argc == 2)
+	i = 1;
+	while (i < argc)
 	{
-		tokens = ft_split(argv[1], ' ');
-		if (!tokens)
+		if (!parse_number_arg(argv[i], a))
+		{
+			ft_putstr_fd("Error\n", 2);
+			free_stack(a);
 			return (0);
-		splited = 1;
+		}
+		i++;
 	}
-	else
-		tokens = &argv[1];
-	if (!process_tokens(tokens, a))
-	{
-		if (splited)
-			ft_free_split(tokens);
-		ft_putstr_fd("Error\n", 2);
-		free_stack(a);
-		free_stack(b);
-		return (0);
-	}
-	if (splited)
-		ft_free_split(tokens);
 	return (1);
 }
 
@@ -51,12 +40,11 @@ static int	checker_ops(t_stack *a, t_stack *b)
 	{
 		if (!run_op(line, a, b))
 		{
-			free_stack(a);
-			free_stack(b);
 			free(line);
 			ft_putstr_fd("Error\n", 2);
 			return (0);
 		}
+		free(line);
 		line = get_next_line(0);
 	}
 	free(line);
@@ -88,15 +76,18 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_init(&a);
 	stack_init(&b);
-	if (!checker_args(argc, argv, &a, &b))
+	if (!checker_args(argc, argv, &a))
 		return (1);
-	if (checker_ops(&a, &b))
+	if (!checker_ops(&a, &b))
 	{
-		if (is_sorted(&a) && b.size == 0)
-			ft_putstr_fd("OK\n", 1);
-		else
-			ft_putstr_fd("KO\n", 1);
+		free_stack(&a);
+		free_stack(&b);
+		return (1);
 	}
+	if (is_sorted(&a) && b.size == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
