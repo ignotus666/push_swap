@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dahanlon <dahanlon@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: jmarin-l <jmarin-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 11:59:32 by dahanlon          #+#    #+#             */
-/*   Updated: 2026/10/28 12:22:35 by dahanlon         ###   ########.fr       */
+/*   Updated: 2026/10/28 16:14:04 by jmarin-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,18 @@ static int	run_op(char *line, t_stack *a, t_stack *b)
 
 int	main(int argc, char **argv)
 {
+	char	**tokens;
+
+	if (argc < 2)
+		return (0);
+	if (argc == 2)
+		tokens = ft_split(argv[1], ' ');
+	else
+		tokens = argv;
+	if (!checker_parse(tokens))
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
 	
 }
