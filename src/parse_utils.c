@@ -12,6 +12,46 @@
 
 #include "push_swap.h"
 
+int	is_valid_syntax(char *nums)
+{
+	int	i;
+
+	i = 0;
+	if (nums[i] == '+' || nums[i] == '-')
+		i++;
+	if (nums[i] == '\0')
+		return (0);
+	while (nums[i])
+	{
+		if (!ft_isdigit(nums[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	process_tokens(char **tokens, t_stack *a)
+{
+	int		j;
+	int		error;
+	long	num;
+
+	j = 0;
+	while (tokens[j])
+	{
+		error = 0;
+		if (!is_valid_syntax(tokens[j]))
+			return (0);
+		num = ft_atol(tokens[j], &error);
+		if (error || has_duplicate(a, (int)num))
+			return (0);
+		if (!stack_append(a, (int)num))
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
 long	ft_atol(const char *nptr, int *error)
 {
 	long	num;
@@ -45,43 +85,6 @@ int	ft_isdigit(int c)
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
-}
-
-int	is_valid_syntax(char *nums)
-{
-	int	i;
-
-	i = 0;
-	if (nums[i] == '+' || nums[i] == '-')
-		i++;
-	if (nums[i] == '\0')
-		return (0);
-	while (nums[i])
-	{
-		if (!ft_isdigit(nums[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	parse_flag(char *arg, t_config *cfg)
-{
-	if (arg[0] != '-' || arg[1] != '-')
-		return (0);
-	if (ft_strncmp(arg, "--simple", 9) == 0)
-		cfg->strategy = STRAT_SIMPLE;
-	else if (ft_strncmp(arg, "--medium", 9) == 0)
-		cfg->strategy = STRAT_MEDIUM;
-	else if (ft_strncmp(arg, "--complex", 10) == 0)
-		cfg->strategy = STRAT_COMPLEX;
-	else if (ft_strncmp(arg, "--adaptative", 11) == 0)
-		cfg->strategy = STRAT_ADAPTIVE;
-	else if (ft_strncmp(arg, "--bench", 8) == 0)
-		cfg->bench = 1;
-	else
-		return (-1);
-	return (1);
 }
 
 void	config_init(t_config *cfg)
