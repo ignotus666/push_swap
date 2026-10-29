@@ -49,7 +49,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(PS_OBJ)
 	$(CC) $(CFLAGS) $(OBJS) $(PS_OBJ) -o $(NAME)
 
-bonus: $(BONUS)
+bonus: $(NAME) $(BONUS)
 
 $(BONUS): $(OBJS) $(BONUS_OBJ)
 	$(CC) $(CFLAGS) $(OBJS) $(BONUS_OBJ) -o $(BONUS)

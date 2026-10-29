@@ -83,8 +83,6 @@ void	ft_free_split(char **words);
 /* Parsing utilities */
 long	ft_atol(const char *nptr, int *error);
 int		is_valid_syntax(char *nums);
-int		parse_flag(char *arg, t_config *cfg);
-int		parse_args(int argc, char **argv, t_stack *a, t_config *cfg);
 int		process_tokens(char **tokens, t_stack *a);
 
 /* Compute disorder utilities */
