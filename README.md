@@ -169,3 +169,4 @@ AI assistance was consulted during development for:
 1. **Algorithmic Review**: Explaining the mathematical intuition behind LSD Radix sorting and verifying time complexity classifications within the Push_swap stack model.
 2. **Debugging & Edge Cases**: Identifying memory leaks in the bonus `get_next_line` loop, catching flag string typos, and verifying non-zero exit codes on malformed inputs.
 3. **Architecture Guidance**: Assisting with function distribution across source files to maintain strict 42 Norm compliance (maximum 5 functions per file and 25 lines per function) and resolving Makefile linker dependencies between `push_swap` and `checker`.
+4. This README file was drafted and formatted with input from the authors and AI assistance to give it structural coherence.
